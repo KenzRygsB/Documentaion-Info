@@ -29,6 +29,10 @@ pour utiliser les pins :
 	is_touched() : True si le pin en question est touché (marche pour les pin0/1/2) (tenir pinGND permet de rendre tactil pin0/1/2)
 	pin0.set_touch_mode(pin0.CAPACITIVE) : rend pin0/1/2 tactil seul
 	pin0.set_touch_mode(pin0.RESISTIVE) : mode de base avec GND
+	avec deux micro-bits connectés avec deux cables input/output:
+		pin1.write_digital(1) : met le signal en on
+		pin1.write_digital(0) : met le signal en off
+		pin2.read_digital() : lis le signal (1 ou 0)
 
 sleep(20) : pause le micro-bit pendant 20 millisecondes
 
@@ -71,3 +75,8 @@ import speech : permet de faire parler le micro-bit
 					les textes acceptés : https://microbit-micropython.readthedocs.io/en/v2-docs/tutorials/speech.html
 					pour des textes personnalisés :
 						("#xxx" + speech.translate("xxxxx"))
+					
+import radio : permet d'envoyer et de recevoir des messages radio
+	radio.send("x") : envoie un message radio x
+	radio.receive() : renvoie le dernier message radio reçu
+		si la radio reçois trop de messages radio sans utiliser receive, la queue de messages peut se remplir au maximum ce qui entraîne la non reception des nouveaux messages
