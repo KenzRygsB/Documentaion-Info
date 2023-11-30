@@ -318,6 +318,10 @@ import time : permet de travailler avec le temps
 import string : permet de travailler avec les string
 	string.punctuation : tout ce qui n'est pas virgule, points, guillements...
 	
+import os: permet de travailler avec l'os
+	os.listdir() : renvoie une liste des fichiers dans le fichier choisi
+	os.remove(x) : supprime le fichier x
+	
 
 import x : importe un module personnalisé (un fichier python enregistré sur le pc)
 	on peut utiliser les fonctions qu'on a définit dans x.py comme n'importe qu'elle autre import : x.fonction()
