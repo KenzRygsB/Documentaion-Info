@@ -1,0 +1,83 @@
+\commande[option]{argument} : utilisation classique d'une commande
+\commande*[option]{argument} : forme étoilée de la commande (si celle-ci existe)
+
+\documentclass : donne la classe du document
+	{article} : rapports de projets, tp
+	{report} : documents plus longs
+	{book} : livres (un peu comme report)
+	{letter} : des lettres
+	{slides} : permet de faire des transparents
+	[a4paper] : met les dimensions de la marge du document en format A4
+	[11pt] : police 11 (taille de base police 10)
+	[twocolumn] : présente le document sur deux colonnes
+	[twoside] : permet une impression recto-verso
+
+\usepackage : extensions
+	{babel} : conventions typographiques et règles de coupure des mots de la langue choisie
+		[french] : langue française
+	{fontenc} : demande d'utiliser le codage de caractères choisi
+		[T1] : nouveau standard de codage
+	{inputenc} : indique en quoi est codé le fichier
+		[utf8] : UTF-8
+		[utf8x] : UTF-8 mais avec plus de caractères
+		[latin9] : ISO 8859-15
+		[latin1] : ISO 8859-1
+	{lmodern} : police de caractères Latin Modern (mieux pour générer des PDFs)
+	{microtype} : apporte des raffinements typographiques supplémentaires
+	{hyperref} : permet de profiter des possibilités de navigation au sein d'un PDF
+			doit être mis après toutes les extensions
+
+\title{titre} : indique le titre du document (commande obligatoire)
+	pour les classes report et book : le titre est seul sur une page au mileu
+	pour la classe article : le titre est en haut de la première page
+\author{nom} : indique le nom de l'auteur (commande obligatoire)
+	{nom\andnom\andnom} : pour plusieurs auteurs
+\date{date} : indique la date du document (si pas utilisée, automatiquement va mettre la date du jour)
+	\date{} : pour ne pas avoir de date
+
+	\\ : pour forcer un retour à la ligne entre des arguments
+
+% : commentaires
+
+Structure du document :
+	préambule avant \begin{document} : les extensions et les "titres"
+	des espaces et retours à la ligne signifient un espace
+	une ligne vide signifie retour à la ligne
+	~ : signifie que le mot à gauche et à droite sont "collés" et apparaîtront à la même ligne
+
+\begin{document} : commence le document
+\end{document} : termine le document
+
+Overfull \hbox (xpt too wide) in paragraph at lines x--x :
+	aller à première ligne où ça arrive et mettre sur le mot : mo\-t
+		le faire un par un car un changement va impacter le reste du document
+
+\maketitle : imprime le titre (à mettre juste après \begin{document}
+
+\thanks{voici la note} : met une note {} à la chose à gauche du \ en bas de page (pour les titres, auteurs, date)
+\footnote{note} : met une note {} à la chose à gauche du \ en bas de page (pour le reste) (en bas de la page)
+\marginpar{note} : met une note {} à la chose à gauche du \ en bas de page (dans la marge)
+
+Hiérarchisation :
+	\part{nom} : une grande partie
+	\chapter{nom} : un chapitre (utilisable que pour les classes report et book)
+	\section{nom} : une section
+		\subsection{nom} : une sous-section
+			\subsubsection{nom} : rajouter un sous par sous-section
+	la hiérarchisation va mettre un numéro devant l'argument et les plus grandes parties en plus grand
+	chaque commande de hiérarchisation a une version étoilée qui n'affiche pas le numéro et ne change pas celui des autres
+		\addcontentsline{toc}{niveau}{titre} : pour ajouter titre à la table des matières à la position niveau
+	\tableofcontents : table des matières (a besoin de deux compilations avant de marcher)
+	\listoftables : affiche la liste des tableaux (a besoin de deux compilations avant de marcher)
+	\listoffigures : affiche la liste des figures (a besoin de deux compilations avant de marcher)
+	\appendix : signale que les chapitres/sections doivent être considérés comme des annexes et seront numérotées A,B,C...
+
+\include{fichier} : permet d'utiliser un fichier tex dans un autre fichier (pas besoin de .tex)
+	crée une nouvelle page avant et après avoir mis le fichier
+\input{fichier} : include sans la nouvelle page
+
+\label{nom} : place un repère nom à la place du truc juste au dessus
+\ref{nom} : : donne la référence de nom (labellé)
+\pageref{nom} : donne la page de nom (labellé)
+
+\textbf{nom} : affiche nom en gras

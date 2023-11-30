@@ -1,0 +1,49 @@
+ rom microbit import * : permet de travailler avec le microbit
+
+display.scroll() : affiche de gauche à droite
+display.show() : affiche
+	Image.x : affiche une image déjà enregistrée dans micro python :
+		https://microbit-micropython.readthedocs.io/fr/latest/tutorials/images.html
+	Image() : crée une image personnalisée
+		Image("00000:"
+               	      "00000:"
+               	      "00000:"
+               	      "00000:"
+               	      "00000:") : chaque nombre est une LED, de 0 à 9 (min à max)
+	Image(), loop=True, delay=100 : Image() une liste d'images
+					loop= True si on veut boucler, False si on veut qu'une boucle
+					delay le délai entre chaque image en millisecondes
+display.clear() : n'affiche plus rien
+
+button_a/b : selon sur quel bouton on travaille
+	button_a.get_presses() : le nombre de fois que le bouton a été pressé (la commande clear le nombre de pressions)
+	button_a.ispressed() : True si le bouton est pressé
+	button_a.waspressed() : True si le bouton a été pressé depuis la dernière utilisation de la fonction
+
+running_time() : le nombre de millisecondes depuis que l'appareil s'est allumé
+
+pour utiliser les pins :
+	pin0 - pin1 - pin2 - pin3V - pinGND - pin_logo
+	is_touched() : True si le pin en question est touché (marche pour les pin0/1/2) (tenir pinGND permet de rendre tactil pin0/1/2)
+	pin0.set_touch_mode(pin0.CAPACITIVE) : rend pin0/1/2 tactil seul
+	pin0.set_touch_mode(pin0.RESISTIVE) : mode de base avec GND
+
+sleep(20) : pause le micro-bit pendant 20 millisecondes
+
+accelerometer travaille sur les axes X (penche gauche/droite) - Y (penche avant/arrière) - z (bouge haut/bas) :
+	accelerometer.get_x() : mesure le micro-bit sur l'axe X
+	accelerometer.current_gesture() : renvoie le pattern en cours
+		up, down, left, right, face up, face down, freefall, 3g, 6g, 8g, shake
+
+boussole :
+	compass.calibrate() : calibre la boussole
+	compass.calibration() : calibre la boussole au moyen d'un jeu utilisateur
+	compass.heading() : renvoie vers où la boussole pointe
+
+
+import music : permet au micro-bit de faire du son
+	music.play() : joue
+		music.x : joue un son déjà enregistré dans micro python
+		x = ["C4:4", "D4:4"] : C : la note ; 4 : l'octave ; :4 : duration
+		x = ["C4:4", "D4] : produit les mêmes sons car python va remettre la dernière durée indiquée
+	music.pitch(frequence, durée)

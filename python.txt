@@ -1,0 +1,333 @@
+le prompt est utile pour des très petits codes, pour tester 2-3 lignes
+les bugs peuvent être de trois catégories : syntax - runtim - semantic
+syntax error : une erreur d'écriture
+runtime error : une exception apparue quand on lance le programme
+semantic error : une erreur d'instructions, le programme va faire ce qu'il lui a été demandé mais l'erreur vient de ce qui lui a été demandé
+il faut debugger au fil du programme et non juste à la fin
+la syntaxe comporte deux choses, une structure et des tokens : chaque élément composant la fonction
+les valeurs peuvent être de plusieurs types : integer(int) - string(str) - floating-point(float) - boolean value(bool)*
+	list - tuple - range - dict (je sais pas ce que c'est)
+integer : nombre non décimaux
+string : texte, entre (') (") (''') (""")
+floating-point : nombre décimaux
+boolean value : ce qui donne une réponse en True ou False
+0 degrés c'est à l'est
+les degrés négatifs marchent
+le bouton de debug en haut de thonny permet de lire un programe étape par étape
+instructions : fait un truc à l'écran | expression : calcule une valeur
+
+and	as	assert	break	class	continue
+def	del	elif	else	except	exec
+finally	for	from	global	if	import
+in	is	lambda	nonlocal	not	or
+pass	raise	return	try	while	with
+yield	True	False	None
+
+Stylish programms:
+	use 4 spaces (instead of tabs) for indentation
+	limit line length to 78 characters
+	when naming identifiers, use CamelCase for classes (we'll get to those) and lowercase_with_underscores for functons and variables
+	place imports at the top of the file
+	keep function definitions together
+	use docstrings to document functions
+	use two blank lines to separate function definitions from each other
+	keep top level statements, including function calls, together at the bottom of the program
+
+Local scope : refers to identifiers declared within a function. These identifiers are kept in the namespace that belongs to the function,
+	and each function has its own namespace.
+Global scope : refers to all the identifiers declared within the current module, or file.
+Built-in scope : refers to all the identifiers built into Python --- those like range and min that can be used without having to import
+	anything, and are (almost) always available.
+
+print : affiche une valeur à l'écran
+	afficher une valeur sur plusieurs lignes en utilisant des triples guillemets : ''' et en faisant sauter des ligne dans le code
+	"\t" : fais une tabulation
+	"\n" : go à la ligne suivante
+	print(x, end="x") : va faire que chaque chose print ne va pas allez à la ligne, ce qui les sépare est le "x" après end=
+# : commentaires pour savoir ce qu'on code
+type : donne le type d'une valeur
+isinstance(objet, type) : renvoie True si l'objet est du type
+	si deux types,  (type1, type2)
+
+= : associe une valeur à une variable (affectation), on peut utiliser l'ancienne variable pour faire la nouvelle : n=2 ; n=3*n+1 --> n=10
+	pour intervetir deux variables on peut faire : a,b = b,a
+	pour faire i = i - 1 on peut faire i -= 1
+== : égal	+ : +	- : -	* : x	** ou pow(x, x) : exponentielle		/ : division	// : division résultant un integer
+% : modulo : le reste d'une division : 9%3==0 parce qu'il ne reste rien ça donne 3 alors que 5%2==1 parce que ça fait 2 et il reste 1
+	peut être utilisé pour voir si un nombre est divisible par un autre (si le résultat du modulo est 0)
+	modulo 10 donne le dernier chiffre, module 100 donne les 2 derniers, etc..
+abs : valeur absolue
+len : donne le nombre de caractères dans un string
+max(x, x, x, x...) : donne le plus grand nombre
+round(x, n) : arrondit x à la n décimale
+
+boolean :
+	== : égal	!= : pas égal	> : plus grand	< : plus petit	>= : plus grand ou égal	<= : plus petit ou égal
+	opposés		== : !=		< : >=		> : <=
+	and(True and False = False)	or(True or False = True)	not(not et not s'entre cancel)
+	not (x and y) == (not x) or (not y)
+	not (x or y) == (not x) and (not y)
+	if	elif (abbréviation de else if)	else(peut ne pas être la, ça skip le else)	pass(ne fais rien mais comble le trou)
+	while		while b (b == True tant que b != 0 et b == False si b == 0)
+	for xxx in [x,x,x,x,x]:	x peut être un str/int/float/variable...		for xxx in range(x): x est un int
+	n=3	for xxx in range(1, n) : 1 - 2 (et pas 0 - 1 - 2)(car ça va de 1 à n)(n non comprise parce que ça commence à 0)
+	n=8	for xxx in range(0, n, 2) : 0 - 2 - 4 - 6 - 8 (car la troisième valeur est un "step" ça va aller de 0 à n en 2 par 2)
+		(si il peut pas aller à n en 2 par 2 il va go 2 par 2 jusqu'à s'arrêter lorsqu'il va dépasser n
+	break : sors directement de la loop
+	return : sors directement de la loop en retournant la valeur
+	continue : skip le reste de la loop mais n'en sors pas
+	réfléchir à si on met la condition au début, au milieu ou à la fin de la loop
+
+x = x + 1	<->	x += 1		marche aussi pour - * / // %
+
+int : transforme en interger (enlève les décimaux du float) (faut que ce soit un nombre entier pour un string)
+float : transforme en floating point (rajoute un .0 à un int)
+str : transforme en string (faut que ce soit un nombre)
+string.lower() et string.upper() où string est un string de notre choix et le rend full minuscule ou full majuscule
+string.isupper() : renvoie True si le string est full maj
+string.islower() : revoie True si le string est full min
+string.isalpha() : renvoie True si il n'y a que des lettres et au moins une lettre
+string.capitalize() : met en lettre capitale le premier charactère du string
+string.swapcase() : met en maj ce qui est en min et ce qui est en min en maj
+oui = "etoui"	print(oui[2]) : "o"
+i in v, donne True si le string i est dans le string v
+i not in v, donne True si le string i n'est pas dans le string v
+i is v, donne True si i et v réfère au même string
+string.find(chose à chercher, début, fin) : trouve le premier string dans le string, retourne -1 si y'en a pas
+string.rfind(chose à chercher, début, fin) : trouve le dernier string dans le string, retourne -1 si y'en a pas
+enumerate() : met en paire chaque string avec son index : oui = "oui"	enumerate(oui) : (0, o) (1, u) (2, i)
+oui > cinq : ce n'est pas la taille qui compte mais l'ordre alphabétique du premier caractère (si même le suivant)
+Oui < cinq : tous les caractères majuscules sont plus "petits" que les minuscules
+string.split() : transforme un string de plusieurs mots en une liste ayant chaque mot (supprime donc les espaces)
+	entre () on peut mettre ce sur quoi on veut baser la séparation de base c'est comme si c'était (" ")
+string.strip() : supprime les " " tout à gauche et tout à droite
+	("o") : supprime les "o" tout à gauche et tout à droite
+string.lstrip() : comme strip mais que à gauche
+string.rstrip() : comme strip mais que à droite
+string.join(string) : inverse de split, rajoute string entre chaque caractère dans le string entre parenthèse (sur un string)
+string.join(liste) : rajoute string entre chaque élément de la liste et le met en un string
+string.replace(old, new) : remplace tous les old par new
+{} : "I am {1} and I am {0} years old.".format(10, "Alice") donne I am Alice and I am 10 years old.
+{:} : le signe ":" change le format du truc entre {}
+	{:f} : transforme un int ou un float en float à 6 décimales
+	{:.2f} : transforme un int ou un float en float avec 2 décimales (ça va arrondir pas juste couper)
+	{:x} : transforme un int en hexadecimal (nombre à base 16 : 123456789abcdef)
+	{:<>^10} : un \t de la taille qu'on veut et soit collé à gauche ou à droite ou au milieu
++ : pour des strings ça va les acoller (si on veut un espace il faut le mettre dans un des strings)
+* : pour des strings ça va les répéter (il faut un string et un integer)
+
+
+sorted() : trie dans l'odre croissant ou alphabétique une liste, pour en créer une nouvelle variable
+	sorted(liste, reverse=True) : trie dans l'odre décroissant ou inverse à l'alphabétique
+liste.sort() : trie dans l'ordre croissant ou alphabétique une liste, modifie la variable de la liste actuelle
+	les listes s'écrivent [1, 2, 3...]
+liste = [1, 2, 3] ; liste[-1] va donner 3 (le dernier nombre) ; liste[-2] va donner 2 (le deuxième dernier nombre)
+liste = [1, 2, 3] ; liste_max = max(liste) ; liste_max va donner 3 (le plus grand nombre)
+liste = [1, 2, 3, 4] , print(1:3) va donner [2, 3] car c'est le dernier truc exclu
+	si on met rien à gauche, ça prend du début, si on met rien à droite, ça prend jusqu'à la fin
+	si on met un nombre out of range à droite, ça va juste prendre jusqu'à la fin sans erreur
+	on peut rajouter un élément dans une liste entre deux éléments en faisant liste[1:1] = [4] (plus nul que la fonction)
+liste = [1, 2, 3]	liste[1].append[4]	liste == [1, 4, 4]	append va remplacer par le nombre depuis le nombre jusqu'à la fin
+	liste.append[4] rajoute juste 4 à la fin de la liste une fois.
+liste = [1, 2, 3]	liste.insert(1, 7)	liste == [1, 7, 2, 3]	insert va insérer à la place la valeur
+liste = [1, 2, 3]	liste.extend([4, 5, 6])	liste == [1, 2, 3, 4, 5, 6]	extend va ajouter la liste à la fin de la liste actuelle
+liste = [1, 2, 3]	liste.index(2) == 1	index est la première position de la valeur
+liste = [1, 2, 3]	liste.reverse()		liste == [3, 2, 1]	reverse retourne la liste à l'envers
+liste = [1, 2, 3]	liste.remove(2)		liste == [1, 3]		remove supprime le premier 2
+additioner deux listes les combines	[1, 3] + [2 , 4] == [1, 3, 2, 4]
+v = [1, 2, 3]		if i in v, donne si i est dans la liste v
+liste = [1, 1, 2, 3] ; liste.count(1) donne 2		permet de compter le nombre de 1 dans liste
+matrice = [[1,2,3],[4,5,6],[7,8,9]] est une matrice ; matrice[1][0] donne 4
+list() : met dans une liste la chose entre parenthèse
+liste = [1, 2, 3], del liste[1] donne liste == [1, 3]
+a = [1, 2, 3]	b = a	dans ce cas a is b et lorsqu'on change a, ça change aussi b (ça s'appelle Aliasing)
+a = [1, 2, 3]	b = a[:]	dans ce cas b est un clone de a mais a is not b
+
+(x, y) : mettre plusieurs valeurs entre () en fait un tuple
+	pour un tuple d'une seule valeur il faut mettre quand même le "," donc : (x,)	sinon il considère pas ça comme un tuple
+	l'important dans un tuple est la "," pas les (), eux sont optionnels
+tuple packing : b = ("Bob", 19, "CS")
+tuple unpacking : (name, age, studies) = b	name == "Bob"	age == 19	studies == "CS"
+un tuple à gauche du = est un tuple de variable et à droite du = est un tuple de valeurs
+x = y	le tuple x doit être de même taille que le tuple y
+on peut retourner plusieurs valeurs qu'avec un tuple
+zip(liste1, liste2) : combine chaque élément de deux string/listes/tuples en tuples de 2
+
+les fonctoins pour les string et pour les listes marchent les unes pour les autres, les tuples aussi
+mais les listes sont muables pas les string et les tuples (muable : on peut les changer, on est pas obligés de créer un nouveau string)
+deux string de même valeur sont un même string, deux listes de même valeur sont deux listes différentes
+
+input : demande à l'utilisateur d'input quelque chose puis d'appuyer sur entrer (la data nous revient en string)
+	(ce que tu mets entre () après input est ce qui est affiché)
+	(si on veut la réponse écrite à côté de la demande mettre un espace avant le ")
+	(si on veut la réponse écrite en dessous de la demande, utiliser la tech des """ revenir à la ligne """)
+	on peut mettre une commande input à la fin du programme pour laisser la fenêtre ouverte
+
+pour tracer un programme : http://www.pythontutor.com/visualize.html
+
+def xxx( x ):	: définit une fonction xxx qui travaille avec x
+	on peut mettre une fonction dans une autre
+	si une fonction retourne quelque chose elle est appelée : fruitful function sinon c'est une void function (utile pour ce qu'elle
+		fait et non ce qu'elle renovoie)
+	si on ne retourne rien, la fonction retourne None
+docstring : du texte à la première ligne du body de la fonction généralement entre """ """ qui permet de comprendre avec quoi la fonction
+	travaille et ce qu'elle est censée donner
+	Google Style Python : 
+		""" Determines whether n is a prime number.
+
+    		This function determines whether the positive integer n is a prime number.
+
+    		Args:
+        		n: a positive integer
+
+    		Returns:
+        		A boolean indicating whether n is a prime number.
+    		"""
+function call : pour faire fonctionner la fonction il faut faire une commande avec le nom de la fonction et des valeurs(arguments)
+	une variable définie dans une fonction n'est définie que dans la fonction
+def xxx(x , x, x=0) : les deux premiers x sont obligatoires et le troisième est optionnel, dans le cas où on appellerait la fonction sans
+	le troisième x la valeur devient par défaut 0
+
+assert fonction(x) == False, "x should not be fonction" : assert la fonction(sur valeur x) donne False, sinon renvoie error:(x, should..)
+assert fonction(x) == True, "x should be fonction"
+assert not fonction(x), "x should not be fonction"
+
+if __name__ == "__main__":	True si on est dans le programme d'où vient le code, si il n'a pas été importé
+
+binary search : dans une big liste, au lieu de faire élément par élément, aller à la moitié voir si le truc à chercher est en dessous ou
+	au dessus et couper tout le reste, répetez
+
+file = open("testfile.txt", "w ou r") : ouvre le fichier textfile.txt (si il n'existe pas il en crée un)
+	ouvre/écrit dans le fichier dans lequel se trouve le programme
+		si on veut ouvrir/écrire dans un autre fichier il faut écrire le path : open("/usr/share/dict/words", "r")
+		le fichier s'appelle words qui se trouve dans dict qui est dans share qui est dans usr qui est dans le général (Unix)
+		dans windows "c:/temp/words.txt" or "c:\\temp\\words.txt".
+		les / et \ sont interdits dans les noms de fichiers
+	"w" : signifie que le fichier est ouvert pour l'écriture (il écrase le fichier si déjà existant) (en crée un si n'existe pas déjà)
+	"r" : signifie que le fichier est ouvert pour la lecture
+	"a" : signifie que le fichier est ouvert pour l'écriture (il écrit après le fichier déjà existant)
+	"xb" : rajouter un b après la lettre signifie qu'on travaille avec un fichier binaire
+with open("testfile.txt") as file : il faut indenter dedans
+	la même chose qu'au dessus mais pas besoin de close à la fin, le fichier est ouvert que quand on travaille dessus
+file.close() : ferme le fichier et rend le fichier utilisable par l'utilisateur
+	tant qu'un fichier est ouvert rien d'autre ne peut travailler dessus
+file.write("Hello") : écrit Hello dans le fichier
+file.writelines(une liste) : écrit une ligne pour chaque élément de la liste dans le fichier
+file.read() : lis le fichier
+	read(5) : lis les 5 premiers caractères du fichier
+	si le fichier est binaire on lit des bytes et non des caractères
+file.readline() : lis la première ligne du fichier (y'aura des espaces par défaut car le fichier en revoie)
+	utilisé une deuxième fois il lira la deuxième ligne du pc (etc..)
+	on empêche la ligne vide inutile via print(file.readline(), end="")
+file.readlines() : met chaque ligne du fichier dans une liste (chaque élément se termine par \n)
+for line in file : line sera à chaque itération une nouvelle ligne du fichier
+la fonction split pour les string marche aussi
+
+
+try : if le code ne crée pas d'erreur l'exécuter
+except : else exécuter ça
+	except x (à mettre avant le except général, sert à target une erreur particulière)
+	except FileNotFoundError : fichier non trouvé
+	except ZeroDivisionError : division par zéro
+raise : crée un except personnalisé dans le code : if un truc qu'on veut pas : raise MonErreur("fais pas ça")
+finally : jsp (regarder le cours video i guess)
+
+oui = {} : crée un dictionnaire oui
+oui["one"] = "uno" add "one": "uno au dictionnaire
+oui = {"one": "uno", "two": "dos"} : crée un dictionnaire avec deux trucs dedans
+oui["one"] : donne "uno"
+del oui["one"] : supprime "one": "uno" du dictionnaire
+oui["banane"] += 200 : ajoute 200 à la valeur de la clé babane
+len(oui) : donne le nombre de clés
+for i in oui.keys : i va être chaque clé de oui
+for i in oui : i va aussi être chaque clé de oui
+for i in oui.values : i va être chaque valeur de oui
+for i,j in oui.items : i,j va être un tuple de chaque clé/valeur
+"one" in oui : True si "one" est une clé de oui
+copie = oui.copy() : crée une copie de oui, changer copie ne changera pas oui
+pour représenter une matrice les listes sont très bien mais pour les matrices principalement remplies de zéro un dictionnaire marche aussi
+	matrix = {(0, 3): 1, (2, 1): 2, (4, 3): 3} : tous les points non cités sont des 0
+matrix.get((0, 3), 0) : le premier argument est la clé, le deuxième est ce qui doit être retourné si il n'y a pas cette clé
+dictionnary.pop(clé, not_found) : supprime du dictionnaire le premier argument et le deuxième est ce qui doit être retourné si la clé
+	n'existe pas
+
+
+import math : permet d'utiliser math
+math.sqrt() : racine carré
+math.sin() : sinus
+math.pi : pi
+math.radians() : convertit des degrés en radiants
+math.degrees() : convertit des randiants en degrés
+math.e : e
+math.asin() : l'arc sinus
+
+import turtle : permet d'utiliser turtles
+	turtle.Screen() : crée un background pour turtles, à associer pour refaire des trucs avec
+			si associé et pas de mainloop à la fin du programme va full crash et va nécisser de fermer depuis fin de tache
+			si pas associé et pas de mainloop à la fin du programme ne va pas crash
+	turtle.Turtle() : crée une tortue
+	alex.forward(50) : avance de 50
+	alex.left(90) : tourne à gauche de 90 degrés
+	alex.right(90) : tourne à droite de 90 degrés
+	alex.backward(50) : recule de 50
+	wn.mainloop : wn étant ce à quoi est attaché le background, mainloop laisse la page ouverte en attente que le mec la ferme
+	alex.color("red") : rend la tortue rouge
+liste des couleurs légales : https://cs111.wellesley.edu/labs/lab02/colors
+		http://www.tcl.tk/man/tcl8.4/TkCmd/colors.htm
+	alex.pensize(3) : la taille de la tortue
+	wn.bgcolor("red") : rend le background rouge
+	wn.title("noin,vnq v") : nomme la fenêtre
+	alex.penup() : lève la tortue
+	alex.pendown(): pose la tortue
+	alex.shape("turtle") : change la forme de la tortue
+des formes légales : arrow ; blank ; circle ; classic ; square ; triangle ; turtle
+	alex.speed(10) : change la vitesse de l'animation
+			vitesse allant de 1 à 10, 10 est le plus rapide
+			la vitesse 0 enlève l'animation
+	alex.stamp() : pose une trace de la tortue dans le background
+	alex.write("") : écrit à l'emplacement de la tortue
+	alex.begin_fill & alex.end_fill : commence le remplissage, puis faire la forme, remplit la forme
+	alex.color("red", "blue") : la première couleur est celle de la tortue, la deuxième est celle du remplissage
+	wn.exitonclick : un mainloop amélioré, ferme la fenêtre après le premier clique effectué
+	alex.goto() : va à un pixel précis (x, y)
+	alex.pos() : donne la position d'alex (x, y)
+	alex.seth() : fait regarder alex une direction (0 = est)
+documentation complete de turtle : https://docs.python.org/3/library/turtle.html
+from turtle import Screen, Turtle : permet de faire des trucs
+	wn.screensize ou wn.setup() : (width, height) pour setup la longueur et la hauteur (besoin du import au dessus)
+
+import random : permet de travailler avec l'aléatoire
+	prng : pseudo-random number generator
+	hrng : hardware random number generator
+	trng : true random number generator
+	box = random.Random() : comme screen.Screen() mais pour de l'aléatoire, après on peut utiliser box.randint()
+		random.Random(43) : 43 est la seed du prng qu'est random.Random()
+	random.random() : génère une valeur float entre 0 et 1 (0 compris, pas 1)
+	random.randint(2, 8) : génère une valeur integer entre 2 et 8 (2 et 8 compris)
+	random.randrange(2, 8, 2) : comme randint mais avec un step 2 par 2
+	random.uniform(2, 8) : génère une valeur float entre 2 et 8
+	random.sample(range(20, 80), 5) : génère 5 valeurs interger entre 20 et 80
+	liste = [1,2,3,4,5]	random.shuffle(liste) : va mélanger les valeurs de la liste
+	liste = [1,2,3,4,5]	random.choice(liste) : va choisir une valeur au hasard dans la liste
+
+import time : permet de travailler avec le temps
+	time.time = le temps actuel en secondes
+		temps final - temps de départ permet de savoir le temps pris pour exécuter certaines choses
+	time.sleep(x) = le programme attend x secondes avant de continuer à s'excuter
+
+import string : permet de travailler avec les string
+	string.punctuation : tout ce qui n'est pas virgule, points, guillements...
+	
+
+import x : importe un module personnalisé (un fichier python enregistré sur le pc)
+	on peut utiliser les fonctions qu'on a définit dans x.py comme n'importe qu'elle autre import : x.fonction()
+from math import pi, sqrt : on utilise plus math.pi mais pi directement
+from math import * : import tout depuis math donc on peut utiliser toutes les fonctions de math sans math
+import math as ma : on utilise plus math.pi mais ma.pi
+
+documentation :
+	python3.0 : https://docs.python.org/3/
+	range : https://docs.python.org/3/library/stdtypes.html#typesseq-range
+	turtle : https://docs.python.org/3/library/turtle.html
+	couleur turtle : https://cs111.wellesley.edu/labs/lab02/colors
+			http://www.tcl.tk/man/tcl8.4/TkCmd/colors.htm
