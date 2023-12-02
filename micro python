@@ -19,8 +19,8 @@ display.clear() : n'affiche plus rien
 
 button_a/b : selon sur quel bouton on travaille
 	button_a.get_presses() : le nombre de fois que le bouton a été pressé (la commande clear le nombre de pressions)
-	button_a.ispressed() : True si le bouton est pressé
-	button_a.waspressed() : True si le bouton a été pressé depuis la dernière utilisation de la fonction
+	button_a.is_pressed() : True si le bouton est pressé
+	button_a.was_pressed() : True si le bouton a été pressé depuis la dernière utilisation de la fonction
 
 running_time() : le nombre de millisecondes depuis que l'appareil s'est allumé
 
