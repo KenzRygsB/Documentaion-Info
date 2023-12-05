@@ -48,6 +48,8 @@ boussole :
 	
 set_volume(x) : définit le volume du micro-bit à x (par défaut 100)
 
+temperature() : renvoie la température actuelle
+
 
 import music : permet au micro-bit de faire du son
 	music.play() : joue
